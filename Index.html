@@ -1,0 +1,332 @@
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>God's Gospel</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 400vh;
+      overflow-x: hidden;
+      background: black;
+      font-family: 'Playfair Display', serif;
+      color: white;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      text-align: center;
+      color: white;
+      margin-top: 50px;
+      user-select: none;
+    }
+
+    #image3d {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 50vmin;
+      height: 50vmin;
+      object-fit: contain;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      transform: translate(-50%, -60%) rotateX(90deg) rotateY(0deg) scale(1);
+      transition: transform 0.1s ease-out;
+      z-index: 0;
+      background-color: black;
+      pointer-events: none; /* ca să nu interacționeze mouse-ul cu imaginea */
+      user-select: none;
+    }
+
+.buttons-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 300px;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease;
+      z-index: 1;
+    }
+
+    .buttons-container.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .triangle-button {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .triangle-button span {
+      display: block;
+      line-height: 1.2;
+    }
+
+    .triangle-button:hover {
+      background: #0055aa;
+      transform: var(--btn-transform) translateY(5px);    
+}
+
+    .btn-top {
+      top: 0;
+      left: 50%;
+       --btn-transform: translate(-50%, -50%);
+  transform: var(--btn-transform);
+    }
+
+    .btn-left {
+      bottom: 0;
+      left: 0;
+      transform: translate(-20%, 20%);
+    }
+
+    .btn-right {
+      bottom: 0;
+      right: 0;
+      transform: translate(20%, 20%);
+    }
+    #finalText {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 100%);
+      color: white;
+      font-size: 3rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 1s ease, transform 0.7s ease;
+      z-index: 2;
+      max-width: 90vw;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    #finalText.visible {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+      pointer-events: auto;
+    }
+
+    /* Buton elegant Tutorial fix dreapta */
+    #tutorialButtonContainer {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      opacity: 0;
+      transform: translateY(-50%) translateX(40px);
+      transition: all 1s ease-out;
+      user-select: none;
+    }
+
+    #tutorialButtonContainer.visible {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .button-elegant {
+      background-color: #4a4a4a;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-decoration: none;
+      display: inline-block;
+      user-select: none;
+    }
+
+    .button-elegant:hover {
+      background-color: #2e2e2e;
+      transform: translateY(-2px);
+    }
+
+    /* Versete butoane în stânga sus */
+    #versesContainer {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      width: 250px;
+      user-select: none;
+      z-index: 4;
+    }
+
+    .verse-button {
+      display: none;
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      white-space: normal;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+
+    .verse-button:hover {
+      background-color: #333;
+    }
+
+    .verse-button.active {
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>God's Gospel</h1>
+
+  <img src="michael.jpg" id="image3d" alt="Imagine 3D">
+
+  <div class="buttons-container" id="btns">
+    <a href="Father.html" class="triangle-button btn-top"><span>The<br>Father</span></a>
+    <a href="Jesus2.html" class="triangle-button btn-left"><span>The<br>Son</span></a>
+    <a href="Spirit3.html" class="triangle-button btn-right"><span>The<br>Holy Spirit</span></a>
+
+    <!-- Textul The Holy Trinity între butoane, la finalul scroll-ului -->
+    <div id="finalText">The Holy Trinity</div>
+  </div>
+
+  <!-- Versete ca butoane -->
+  <div id="versesContainer">
+    <button class="verse-button" data-url="verse1.html">Psalm 23:1 - The Lord is my shepherd; I shall not want.</button>
+    <button class="verse-button" data-url="verse1.html">John 3:16 - For God so loved the world...</button>
+    <button class="verse-button" data-url="verse1.html">Romans 8:28 - All things work together for good...</button>
+    <button class="verse-button" data-url="verse1.html">Proverbs 3:5 - Trust in the Lord with all your heart...</button>
+    <button class="verse-button" data-url="verse1.html">Isaiah 40:31 - Those who hope in the Lord will renew their strength...</button>
+    <button class="verse-button" data-url="verse1.html">Matthew 5:16 - Let your light shine before others...</button>
+    <button class="verse-button" data-url="verse1.html">Philippians 4:13 - I can do all things through Christ...</button>
+    <button class="verse-button" data-url="verse1.html">Jeremiah 29:11 - For I know the plans I have for you...</button>
+    <button class="verse-button" data-url="verse1.html">Hebrews 11:1 - Now faith is confidence in what we hope for...</button>
+    <button class="verse-button" data-url="verse1.html">Psalm 46:10 - Be still, and know that I am God.</button>
+  </div>
+
+  <!-- Buton Tutorial fix dreapta -->
+  <div id="tutorialButtonContainer">
+    <a href="Tutorial.html" class="button-elegant"><span>Tutorial</span></a>
+  </div>
+
+  <!-- Buton scroll incet -->
+  <button id="scrollBtn" class="button-elegant" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: #555; color: white; z-index: 5;">
+    Scroll Down
+  </button>
+
+  <script>
+    const img = document.getElementById('image3d');
+    const btns = document.getElementById('btns');
+    const finalText = document.getElementById('finalText');
+    const tutorialButton = document.getElementById('tutorialButtonContainer');
+    const verses = document.querySelectorAll('.verse-button');
+    const scrollBtn = document.getElementById('scrollBtn');
+
+    const totalScroll = document.body.scrollHeight - window.innerHeight;
+    const versesCount = verses.length;
+
+    // Versete afișate câte unul la scroll, dispar când scrolli mai departe
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+
+      // Final text apare doar la capătul scrollului
+      if (y > totalScroll - 100) {
+        finalText.classList.add('visible');
+        btns.classList.add('visible');
+      } else {
+        finalText.classList.remove('visible');
+      }
+
+      // Rotire imagine la scroll
+      const offset = 300;
+      const scrollY = Math.max(0, y - offset);
+      const rotX = Math.max(0, 90 - scrollY * 0.2);
+      const rotY = Math.min(30, scrollY * 0.03);
+      const scale = 1 + scrollY * 0.0008; // mai mare la final
+      img.style.transform = `translate(-50%, -60%) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${scale})`;
+
+      // Butoane triunghi apar după scroll 900px
+      if (y > 900) {
+        btns.classList.add('visible');
+      } else {
+        btns.classList.remove('visible');
+      }
+
+      // Tutorial button fade-in când e în viewport
+      const rect = tutorialButton.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        tutorialButton.classList.add('visible');
+      }
+
+      // Versete - arată câte unul, în funcție de scroll
+      const step = totalScroll / versesCount;
+      let currentIndex = Math.min(versesCount - 1, Math.floor(y / step));
+      verses.forEach((v, i) => {
+        if (i === currentIndex) {
+          v.classList.add('active');
+        } else {
+          v.classList.remove('active');
+        }
+      });
+    });
+
+    // Versete - click pe buton duce la pagina specifică
+    verses.forEach(button => {
+      button.addEventListener('click', () => {
+        window.location.href = button.dataset.url;
+      });
+    });
+
+    // Buton scroll incet - cu 25% mai rapid decât era, ~4 secunde scroll complet
+    scrollBtn.addEventListener('click', () => {
+      const duration = 4000; // 4 secunde
+      const start = window.scrollY;
+      const end = document.body.scrollHeight - window.innerHeight;
+      const distance = end - start;
+      let startTime = null;
+
+      function scrollAnimation(time) {
+        if (!startTime) startTime = time;
+        const elapsed = time - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = progress < 0.5 
+          ? 2 * progress * progress 
+          : -1 + (4 - 2 * progress) * progress; // easeInOutQuad
+        window.scrollTo(0, start + distance * ease);
+        if (progress < 1) {
+          requestAnimationFrame(scrollAnimation);
+        }
+      }
+      requestAnimationFrame(scrollAnimation);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tutorial Traducere Pagină cu Google</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .step {
+      width: 1000px;
+      text-align: center;
+    }
+
+    .step img {
+      width: 100%;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .arrow {
+      font-size: 2rem;
+      align-self: center;
+    }
+
+    .step-label {
+      margin-top: 0.5rem;
+      font-weight: bold;
+    }
+
+    /* Responsive: stacked layout on narrow screens */
+    @media (max-width: 768px) {
+      .tutorial-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    /* Stil pentru butonul de return */
+    .return-button {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .fancy-btn {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #e60000;
+      color: white;
+      padding: 14px 36px;
+      font-size: 1.1rem;
+      font-family: Arial, sans-serif;
+      border-radius: 50px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .fancy-btn:hover {
+      background-color: #b80000;
+      transform: scale(1.08);
+      box-shadow: 0 8px 26px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Tutorial: Tutorial for translating in any language you want this page to be!</h1>
+
+  <div class="return-button">
+    <a href="index.html" class="fancy-btn">Return to Homepage</a>
+  </div>
+
+  <div class="tutorial-container">
+
+    <!-- Pasul 1 -->
+    <div class="step">
+      <img src="pas1.jpg" alt="Step 1">
+      <div class="step-label">1. As you are on the page, press the button where the arrow is pointing!</div>
+    </div>
+
+    <div class="arrow">➡️</div>
+
+    <!-- Pasul 2 -->
+    <div class="step">
+      <img src="pas2.jpg" alt="Step 2">
+      <div class="step-label">2. Press the Google's pictogram that says "translate"!</div>
+    </div>
+
+    <div class="arrow">➡️</div>
+
+    <!-- Pasul 3 -->
+    <div class="step">
+      <img src="pas3.jpg" alt="Step 3">
+      <div class="step-label">3. You can select the language you want by pressing the 3points and then pressing "choose another language"!</div>
+    </div>
+
+    <div class="arrow">➡️</div>
+
+    <!-- Pasul 4 -->
+    <div class="step">
+      <img src="pas4.jpg" alt="Step 4">
+      <div class="step-label">4.After that you need to press the language you have selected and boom, the page has been translated!</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Holy Spirit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      background: #1a1a2e;
+      color: #eee;
+      overflow-x: hidden;
+    }
+    header {
+      height: 100vh;
+      background: url('holy.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column; /* fix ca butonul sa fie sub h1 */
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      color: #fff;
+      padding-bottom: 2rem; /* spatiu pt buton */
+    }
+    header h1 {
+      font-size: 5rem;
+      margin: 0;
+      padding: 0 20px;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.9);
+      background: rgba(0, 0, 50, 0.5);
+      border-radius: 15px;
+      user-select: none;
+    }
+    .return-button {
+      margin-top: 1.5rem; /* distanta sub h1 */
+    }
+    .fancy-btn {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #e60000; /* rosu intens */
+      color: white;
+      padding: 14px 36px;
+      font-size: 1.1rem;
+      font-family: 'Playfair Display', serif;
+      border-radius: 50px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .fancy-btn:hover {
+      background-color: #b80000;
+      transform: scale(1.08);
+      box-shadow: 0 8px 26px rgba(0,0,0,0.3);
+    }
+    .search-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      background: #0f3460;
+      padding: 10px 20px;
+      border-radius: 40px;
+      box-shadow: 0 0 15px #16213e;
+      display: flex;
+      align-items: center;
+    }
+    .search-container input[type="text"] {
+      width: 300px;
+      height: 50px;
+      padding: 0 20px;
+      font-size: 1.2rem;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      color: #222;
+      font-weight: 600;
+      transition: box-shadow 0.3s ease;
+    }
+    .search-container input[type="text"]:focus {
+      box-shadow: 0 0 10px #e94560;
+    }
+    mark {
+      background-color: #f9d71c;
+      color: #000;
+      font-weight: bold;
+      padding: 0 3px;
+      border-radius: 3px;
+    }
+    section {
+      max-width: 1000px;
+      margin: 3rem auto 5rem;
+      padding: 0 2rem;
+      color: #eee;
+    }
+    .chapter {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+      background: #16213e;
+      border-radius: 12px;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.6);
+      overflow: hidden;
+      padding: 1.5rem;
+      gap: 1.5rem;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-out;
+    }
+    .chapter.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .chapter img {
+      flex: 1 1 280px;
+      max-width: 280px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+      user-select: none;
+    }
+    .chapter-content {
+      flex: 2 1 600px;
+    }
+    .chapter-content h2 {
+      font-size: 2.8rem;
+      margin-top: 0;
+      color: #e94560;
+      user-select: none;
+    }
+    .chapter-content p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      user-select: text;
+    }
+    .chapter-content p b {
+      color: #f9d71c;
+      font-weight: 700;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 1rem;
+      color: #888;
+      background: #0f3460;
+      user-select: none;
+    }
+    @media (max-width: 768px) {
+      .chapter {
+        flex-direction: column;
+      }
+      .chapter img, .chapter-content {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+      .search-container input[type="text"] {
+        width: 200px;
+      }
+      header h1 {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>The Holy Spirit</h1>
+
+  
+</header>
+
+<center><div class="return-button">
+    <a href="index.html" class="fancy-btn">Return to Homepage</a></center>
+  </div>
+
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="Search the text..." />
+</div>
+
+<section id="content">
+  <div class="chapter fade-in">
+    <img src="duhul.jpg" alt="Dove representing the Holy Spirit" />
+    <div class="chapter-content">
+      <h2>Introduction to the Holy Spirit</h2>
+      <p>The Holy Spirit is the third person of the Trinity, God's active presence in the world today. The Spirit guides, comforts, and empowers believers to live a godly life and bear witness to God's love.</p>
+      <p><b>"And I will ask the Father, and he will give you another Advocate to help you and be with you forever." – John 14:16</b></p>
+    </div>
+  </div>
+
+  <div class="chapter fade-in">
+    <img src="holy.jpg" alt="Fire representing the Holy Spirit" />
+    <div class="chapter-content">
+      <h2>The Power of the Spirit</h2>
+      <p>The Spirit empowers believers with spiritual gifts and strength to face challenges. This divine power transforms hearts and renews minds to follow Christ wholeheartedly.</p>
+      <p><b>"But you will receive power when the Holy Spirit comes on you; and you will be my witnesses in Jerusalem, and in all Judea and Samaria, and to the ends of the earth." – Acts 1:8</b></p>
+    </div>
+  </div>
+
+  <div class="chapter fade-in">
+    <img src="duh.jpg" alt="Hands lifted in worship" />
+    <div class="chapter-content">
+      <h2>The Role of the Spirit in Sanctification</h2>
+      <p>The Holy Spirit works in believers to cultivate holiness, helping them grow in character and bear the fruit of the Spirit, such as love, joy, peace, and patience.</p>
+      <p><b>"But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness." – Galatians 5:22</b></p>
+    </div>
+  </div>
+
+  <div class="chapter fade-in">
+    <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=600&q=80" alt="Bible and candle" />
+    <div class="chapter-content">
+      <h2>The Greatest Sin: Blasphemy Against the Holy Spirit</h2>
+      <p>One of the gravest sins mentioned in Scripture is the blasphemy against the Holy Spirit. This sin is described as unforgivable because it involves a conscious and persistent rejection of God's grace and work.</p>
+      <p><b>"Truly I tell you, people will be forgiven for their sins and whatever blasphemies they utter; but whoever blasphemes against the Holy Spirit can never have forgiveness, but is guilty of an eternal sin." – Mark 3:28-29</b></p>
+      <p>This warning urges us to be vigilant and humble, remaining open to the Spirit's work in our lives, never rejecting or resisting God's loving guidance.</p>
+    </div>
+  </div>
+
+  <div class="chapter fade-in">
+    <img src="light.jpg" alt="Light breaking through clouds" />
+    <div class="chapter-content">
+      <h2>Living in the Spirit</h2>
+      <p>Living in the Spirit means daily surrender, listening to God's voice, and obeying His will. It brings peace beyond understanding and equips us to love others as Christ loves us.</p>
+      <p><b>"Since we live by the Spirit, let us keep in step with the Spirit." – Galatians 5:25</b></p>
+      <p>The Spirit is a constant companion, comforter, and teacher, guiding us into truth and empowering our walk with God.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Spiritual Web Experience | Scriptures from the Holy Bible (John, Acts, Galatians, Mark)
+</footer>
+
+<script>
+  // Intersection Observer for fade-in animation
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Search and highlight functionality
+  const searchInput = document.getElementById('searchInput');
+  const content = document.getElementById('content');
+
+  searchInput.addEventListener('input', () => {
+    const searchValue = searchInput.value.trim().toLowerCase();
+    if (!searchValue) {
+      // Remove all highlights
+      content.querySelectorAll('mark').forEach(mark => {
+        mark.outerHTML = mark.innerText;
+      });
+      return;
+    }
+    // Remove previous highlights first
+    content.querySelectorAll('mark').forEach(mark => {
+      mark.outerHTML = mark.innerText;
+    });
+    // Highlight new search results
+    const regex = new RegExp(`(${searchValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    content.querySelectorAll('p, h2').forEach(el => {
+      el.innerHTML = el.textContent.replace(regex, '<mark>$1</mark>');
+    });
+    // Scroll to first match
+    const firstMark = content.querySelector('mark');
+    if (firstMark) {
+      firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  });
+</script>
+
+</body>
+</html>

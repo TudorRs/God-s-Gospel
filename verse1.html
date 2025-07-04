@@ -1,0 +1,249 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>60 Inspirational Bible Verses</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cardo', serif;
+      background: #fefefe;
+      color: #222;
+    }
+    header {
+      background-image: url('light.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 6px #000000cc;
+    }
+    .search-container {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 0.5rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    input[type="text"] {
+      padding: 0.75rem;
+      width: 300px;
+      font-size: 1rem;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+    input[type="text"]:focus {
+      border-color: #1e3a8a;
+      box-shadow: 0 0 5px #1e3a8a;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background-color: #1e3a8a;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #3b55c4;
+    }
+    .return-btn {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background-color: #ffffffdd;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #111;
+      font-weight: bold;
+    }
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      margin-top: 2rem;
+      color: #444;
+    }
+    .verse {
+      background: #ffffff;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      line-height: 1.6;
+    }
+    .verse b {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #1f2937;
+    }
+    mark {
+      background-color: #fff176;
+      font-weight: bold;
+      padding: 0 2px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="return-btn" href="index.html">← Back to Home</a>
+    <h1>60 Inspirational Bible Verses</h1>
+  </header>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search for a word..." />
+    <button id="searchBtn">Search</button>
+  </div>
+
+  <main id="verses">
+    <!-- Verses will be inserted here by JavaScript -->
+  </main>
+
+  <script>
+    const originalVerses = [
+          { ref: "Psalm 23:1", text: "The Lord is my shepherd; I shall not want." },
+      { ref: "John 3:16", text: "For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life." },
+      { ref: "Romans 8:28", text: "And we know that all things work together for good to those who love God, to those who are the called according to His purpose." },
+      { ref: "Proverbs 3:5", text: "Trust in the Lord with all your heart and lean not on your own understanding." },
+      { ref: "Isaiah 40:31", text: "But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint." },
+      { ref: "Matthew 5:16", text: "Let your light shine before others, that they may see your good deeds and glorify your Father in heaven." },
+      { ref: "Philippians 4:13", text: "I can do all things through Christ who strengthens me." },
+      { ref: "Jeremiah 29:11", text: "'For I know the plans I have for you,' declares the Lord, 'plans to prosper you and not to harm you, plans to give you hope and a future.'" },
+      { ref: "Hebrews 11:1", text: "Now faith is the substance of things hoped for, the evidence of things not seen." },
+      { ref: "Psalm 46:10", text: "Be still, and know that I am God; I will be exalted among the nations, I will be exalted in the earth." },
+      { ref: "Isaiah 41:10", text: "Fear not, for I am with you; be not dismayed, for I am your God. I will strengthen you, yes, I will help you, I will uphold you with My righteous right hand." },
+      // To be continued with 50 more organized by category
+   { ref: "Deuteronomy 31:6", text: "Be strong and courageous. Do not be afraid or terrified because of them, for the Lord your God goes with you; he will never leave you nor forsake you." },
+      { ref: "Joshua 1:9", text: "Have I not commanded you? Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go." },
+      { ref: "2 Timothy 1:7", text: "For the Spirit God gave us does not make us timid, but gives us power, love and self-discipline." },
+      { ref: "Romans 15:13", text: "May the God of hope fill you with all joy and peace as you trust in him, so that you may overflow with hope by the power of the Holy Spirit." },
+      { ref: "Psalm 27:1", text: "The Lord is my light and my salvation—whom shall I fear? The Lord is the stronghold of my life—of whom shall I be afraid?" },
+      { ref: "Psalm 34:17", text: "The righteous cry out, and the Lord hears them; he delivers them from all their troubles." },
+      { ref: "Nahum 1:7", text: "The Lord is good, a refuge in times of trouble. He cares for those who trust in him." },
+      { ref: "1 Peter 5:7", text: "Cast all your anxiety on him because he cares for you." },
+      { ref: "Matthew 11:28", text: "Come to me, all you who are weary and burdened, and I will give you rest." },
+      { ref: "Philippians 4:6-7", text: "Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God." },
+      { ref: "Isaiah 43:2", text: "When you pass through the waters, I will be with you; and when you pass through the rivers, they will not sweep over you." },
+      { ref: "Lamentations 3:22-23", text: "Because of the Lord’s great love we are not consumed, for his compassions never fail. They are new every morning." },
+      { ref: "James 1:5", text: "If any of you lacks wisdom, you should ask God, who gives generously to all without finding fault, and it will be given to you." },
+      { ref: "John 14:27", text: "Peace I leave with you; my peace I give you. I do not give to you as the world gives. Do not let your hearts be troubled and do not be afraid." },
+      { ref: "Romans 12:12", text: "Be joyful in hope, patient in affliction, faithful in prayer." },
+      { ref: "Psalm 9:9", text: "The Lord is a refuge for the oppressed, a stronghold in times of trouble." },
+      { ref: "Psalm 55:22", text: "Cast your cares on the Lord and he will sustain you; he will never let the righteous be shaken." },
+      { ref: "Psalm 91:4", text: "He will cover you with his feathers, and under his wings you will find refuge; his faithfulness will be your shield and rampart." },
+      { ref: "Isaiah 26:3", text: "You will keep in perfect peace those whose minds are steadfast, because they trust in you." },
+      { ref: "Proverbs 18:10", text: "The name of the Lord is a fortified tower; the righteous run to it and are safe." },
+      { ref: "2 Corinthians 12:9", text: "My grace is sufficient for you, for my power is made perfect in weakness." },
+      { ref: "Psalm 121:1-2", text: "I lift up my eyes to the mountains—where does my help come from? My help comes from the Lord, the Maker of heaven and earth." },
+      { ref: "Psalm 37:4", text: "Take delight in the Lord, and he will give you the desires of your heart." },
+      { ref: "Proverbs 16:3", text: "Commit to the Lord whatever you do, and he will establish your plans." },
+      { ref: "Romans 5:8", text: "But God demonstrates his own love for us in this: While we were still sinners, Christ died for us." },
+      { ref: "Galatians 6:9", text: "Let us not become weary in doing good, for at the proper time we will reap a harvest if we do not give up." },
+      { ref: "Colossians 3:23", text: "Whatever you do, work at it with all your heart, as working for the Lord, not for human masters." },
+      { ref: "1 Thessalonians 5:16-18", text: "Rejoice always, pray continually, give thanks in all circumstances; for this is God’s will for you in Christ Jesus." },
+      { ref: "Psalm 119:105", text: "Your word is a lamp for my feet, a light on my path." },
+      { ref: "Micah 6:8", text: "He has shown you, O mortal, what is good. And what does the Lord require of you? To act justly and to love mercy and to walk humbly with your God." },
+      { ref: "James 1:12", text: "Blessed is the one who perseveres under trial because, having stood the test, that person will receive the crown of life that the Lord has promised to those who love him." },
+      { ref: "Ephesians 6:10", text: "Finally, be strong in the Lord and in his mighty power." },
+      { ref: "Isaiah 12:2", text: "Surely God is my salvation; I will trust and not be afraid." },
+      { ref: "Psalm 31:24", text: "Be strong and take heart, all you who hope in the Lord." },
+      { ref: "Romans 8:38-39", text: "For I am convinced that neither death nor life, neither angels nor demons, neither the present nor the future... will be able to separate us from the love of God." },
+      { ref: "2 Corinthians 4:16-18", text: "Therefore we do not lose heart. Though outwardly we are wasting away, yet inwardly we are being renewed day by day." },
+      { ref: "Matthew 6:33", text: "But seek first his kingdom and his righteousness, and all these things will be given to you as well." },
+      { ref: "Psalm 16:8", text: "I keep my eyes always on the Lord. With him at my right hand, I will not be shaken." },
+      { ref: "Isaiah 30:15", text: "In repentance and rest is your salvation, in quietness and trust is your strength." },
+      { ref: "Proverbs 4:23", text: "Above all else, guard your heart, for everything you do flows from it." },
+      { ref: "John 16:33", text: "In this world you will have trouble. But take heart! I have overcome the world." },
+      { ref: "1 Corinthians 10:13", text: "God is faithful; he will not let you be tempted beyond what you can bear." },
+      { ref: "Zephaniah 3:17", text: "The Lord your God is with you, the Mighty Warrior who saves. He will take great delight in you..." },
+      { ref: "1 John 4:4", text: "You, dear children, are from God and have overcome them, because the one who is in you is greater than the one who is in the world." },
+      { ref: "Matthew 19:26", text: "With man this is impossible, but with God all things are possible." },
+      { ref: "Isaiah 54:17", text: "No weapon forged against you will prevail, and you will refute every tongue that accuses you." },
+      { ref: "Psalm 94:19", text: "When anxiety was great within me, your consolation brought me joy." },
+      { ref: "Philippians 1:6", text: "He who began a good work in you will carry it on to completion until the day of Christ Jesus." },
+      { ref: "Romans 10:9", text: "If you declare with your mouth, \"Jesus is Lord,\" and believe in your heart that God raised him from the dead, you will be saved." },
+      { ref: "Revelation 3:20", text: "Here I am! I stand at the door and knock. If anyone hears my voice and opens the door, I will come in." },
+      { ref: "Hebrews 13:8", text: "Jesus Christ is the same yesterday and today and forever." },
+      { ref: "Matthew 28:20", text: "And surely I am with you always, to the very end of the age." }
+
+    ];
+    
+
+    const versesContainer = document.getElementById('verses');
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+
+    function highlight(text, query) {
+      const regex = new RegExp(`(${query})`, 'gi');
+      return text.replace(regex, '<mark>$1</mark>');
+    }
+
+    function renderVerses(query = '') {
+      versesContainer.innerHTML = '';
+      originalVerses.forEach((v, i) => {
+        // Dacă e query, afișăm doar versetele care conțin cuvântul căutat
+        if (query && !v.text.toLowerCase().includes(query.toLowerCase()) && !v.ref.toLowerCase().includes(query.toLowerCase())) {
+          return; // sărim peste versetele care nu conțin textul căutat
+        }
+
+        const div = document.createElement('div');
+        div.className = 'verse';
+        div.id = `verse-${i}`;
+
+        const highlightedText = query ? highlight(v.text, query) : v.text;
+        div.innerHTML = `<b>${v.ref}</b> ${highlightedText}`;
+
+        versesContainer.appendChild(div);
+      });
+
+      if (query && versesContainer.children.length === 0) {
+        versesContainer.innerHTML = `<p>No verses found matching "<b>${query}</b>"</p>`;
+      }
+    }
+
+    function searchVerses() {
+      const query = searchInput.value.trim();
+      renderVerses(query);
+
+      if (!query) return;
+
+      const firstMatch = [...versesContainer.querySelectorAll('.verse')][0];
+      if (firstMatch) {
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    searchBtn.addEventListener('click', searchVerses);
+    searchInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        searchVerses();
+      }
+    });
+
+    renderVerses();
+  </script>
+</body>
+</html>
+
+
